@@ -247,11 +247,6 @@ input:focus, textarea:focus, select:focus {
   justify-content: space-between;
   align-items: center;
 
-   position: fixed;
-  top: 20px;
-  right: 10px;
-  max-width: 80%;
-
   box-shadow: var(--shadow-sm);
 
   animation: toastIn 0.25s ease;
@@ -407,23 +402,4 @@ input:focus, textarea:focus, select:focus {
 
 .delete-btn:hover {
   background: #dc2626;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px;
-}
-
-.header-actions {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.header-actions button {
-  padding: 6px 10px;
-  font-size: 12px;
-  border-radius: 8px;
 }

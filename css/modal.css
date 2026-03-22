@@ -258,9 +258,7 @@
   .modal {
     width: 720px;
     height: auto;
-     max-height: 80vh;
-     overflow-y: auto;
-
+    max-height: 90vh;
 
     border-radius: var(--radius-lg);
     background: var(--panel);
@@ -436,20 +434,11 @@
   border-radius: 6px;
   cursor: pointer;
 }
-.tag-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
+
 /* ACTION BUTTONS */
 .tag-actions {
   display: flex;
-  gap: 8px;
+  gap: 6px;
 }
 
 /* MOBILE STACK */
@@ -538,35 +527,4 @@
   padding: 4px 8px;
   border-radius: 6px;
   font-size: 12px;
-}
-
-.metadata-form {
-  display: flex;
-  flex-direction: column; /* 🔥 FORCE vertical */
-  gap: 12px;
-  width: 100%;
-}
-
-.metadata-form input,
-.metadata-form textarea {
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-textarea {
-  width: 100%;
-  min-height: 100px;
-  resize: vertical;
-}
-
-.form-row {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap; /* 🔥 THIS FIXES IT */
-}
-
-.form-row button {
-  flex: 1;
-  min-width: 80px;
 }
