@@ -24,6 +24,9 @@
 .filters {
   padding: 20px 30px;
   border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
 
 .stats {

@@ -258,7 +258,9 @@
   .modal {
     width: 720px;
     height: auto;
-    max-height: 90vh;
+     max-height: 80vh;
+     overflow-y: auto;
+
 
     border-radius: var(--radius-lg);
     background: var(--panel);
@@ -434,11 +436,20 @@
   border-radius: 6px;
   cursor: pointer;
 }
-
+.tag-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
 /* ACTION BUTTONS */
 .tag-actions {
   display: flex;
-  gap: 6px;
+  gap: 8px;
 }
 
 /* MOBILE STACK */
