@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Manga Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <link rel="stylesheet" href="css/modal.css" />
+  <link rel="stylesheet" href="css/library.css" />
+</head>
+
+<div id="toast-container"></div>
+
+<body>
+
+  <!-- LOGIN VIEW -->
+  <div id="loginView" class="login-screen hidden">
+  <div class="login-card">
+    <h1 class="login-title">Manga Tracker</h1>
+    <p class="login-subtitle">Track your reading progress effortlessly</p>
+
+    <button id="loginBtn" class="login-btn">
+      Continue with Manga Tracker
+    </button>
+  </div>
+</div>
+
+  <!-- APP VIEW -->
+  <div id="appView" class="app-view hidden">
+
+    <header class="app-header">
+      <h2 class="logo">Manga Tracker</h2>
+
+      <div class="header-actions">
+        <button id="manageTagsBtn">Tags</button>
+        <button id="addMangaBtn">Add Manga</button>
+        <button id="logoutBtn">Logout</button>
+      </div>
+    </header>
+
+    <!-- Filters -->
+    <section class="filters">
+      <div class="filter-bar">
+
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search manga..."
+          class="filter-search"
+        />
+
+        <select id="statusFilter" class="filter-select">
+          <option value="all">All Status</option>
+          <option value="reading">Reading</option>
+          <option value="completed">Completed</option>
+          <option value="dropped">Dropped</option>
+          <option value="on_hold">On Hold</option>
+          <option value="plan_to_read">Plan to Read</option>
+        </select>
+
+        <select id="sortFilter" class="filter-select">
+          <option value="recent">Recently Read</option>
+          <option value="title_asc">Title A–Z</option>
+          <option value="title_desc">Title Z–A</option>
+          <option value="chapter_desc">Most Chapters Read</option>
+          <option value="chapter_asc">Least Chapters Read</option>
+        </select>
+
+      <button id="toggleGenres" class="filter-toggle">Genres ▼</button>
+      <div id="genreFilters" class="filter-chip-group hidden"></div>
+      
+      <button id="toggleTags" class="filter-toggle">Tags ▼</button>
+      <div id="tagFilters" class="filter-chip-group hidden"></div>
+
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+      <div>Total Manga: <span id="statTotal">0</span></div>
+      <div>Total Chapters Read: <span id="statChapters">0</span></div>
+    </section>
+
+    <!-- Main App Container -->
+    <main id="app">
+      <div id="library"></div>
+    </main>
+
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+/* =========================================
+   FILTER PANEL
+========================================= */
+
+.filter-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag-filter,
+.genre-filter {
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.tag-filter {
+  border: 1px solid;
+}
+
+.genre-filter {
+  border: 1px solid #4b5563;
+}
+
+.tag-filter.active,
+.genre-filter.active {
+  font-weight: 600;
+}
+
+/*Filter toggle*/
+
+.filter-toggle{
+  padding:6px 12px;
+  border-radius:6px;
+  background:#1f2937;
+  color:white;
+  border:1px solid #374151;
+  cursor:pointer;
+}
+
+.filter-toggle:hover{
+  background:#374151;
+}
+/* =========================================
+   BUTTONS
+========================================= */
+
+.delete-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+}
+
+.edit-btn,
+.save-btn,
+.cancel-btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.edit-btn { background: #3b82f6; color: white; }
+.save-btn { background: #22c55e; color: white; }
+.cancel-btn { background: #6b7280; color: white; }
+
+/* =========================================
+   CHAPTER COUNTER
+========================================= */
+
+.chapter-counter {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.counter-btn {
+  background: #1f2937;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.counter-btn:hover {
+  background: #2563eb;
+}
+
+.counter-value {
+  min-width: 24px;
+  text-align: center;
+}
+

@@ -1,0 +1,305 @@
+/* =========================================
+   DETAILS PAGE LAYOUT
+========================================= */
+
+.details-page {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 30px;
+}
+
+/* =========================================
+   HEADER SECTION
+========================================= */
+
+.details-header-wrapper{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.details-topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.details-header{
+  display:flex;
+  gap:20px;
+  align-items:flex-start;
+}
+.details-cover {
+  width: 240px;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+  flex-shrink: 0;
+}
+
+.details-info {
+  flex: 1;
+}
+
+.details-info h1 {
+  font-size: 30px;
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+
+.details-description {
+  color: #cbd5e1;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.details-genres{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:6px 0 10px;
+}
+
+.genre-badge{
+  background:#222;
+  color:#fff;
+  font-size:12px;
+  padding:4px 10px;
+  border-radius:20px;
+  opacity:.85;
+}
+/* =========================================
+   STATUS SECTION
+========================================= */
+
+.details-status {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.details-status span {
+  font-weight: 500;
+  color: #9ca3af;
+}
+
+.details-status select {
+  background: #1f2937;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid #374151;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* =========================================
+   PROGRESS SECTION
+========================================= */
+
+.details-progress {
+  margin-bottom: 35px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+/* =========================================
+   META CARD
+========================================= */
+
+.details-meta-card {
+  background: #111827;
+  padding: 28px;
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  margin-top: 20px;
+}
+
+/* =========================================
+   META GRID
+========================================= */
+
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.meta-grid div {
+  background: #1f2937;
+  padding: 14px;
+  border-radius: 12px;
+}
+
+.meta-grid span {
+  display: block;
+  font-size: 12px;
+  color: #9ca3af;
+  margin-bottom: 4px;
+}
+
+.meta-grid strong {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* =========================================
+   GENRE CHIPS (Premium)
+========================================= */
+
+.genre-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.genre-chip {
+  background: linear-gradient(135deg, #374151, #1f2937);
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: white;
+  transition: 0.2s ease;
+}
+
+.genre-chip:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #4b5563, #374151);
+}
+
+/* =========================================
+   META ACTION BUTTONS
+========================================= */
+
+.meta-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.edit-btn,
+.refresh-btn {
+  padding: 9px 16px;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.edit-btn {
+  background: #2563eb;
+  color: white;
+}
+
+.edit-btn:hover {
+  background: #1d4ed8;
+}
+
+.refresh-btn {
+  background: #8b5cf6;
+  color: white;
+}
+
+.refresh-btn:hover {
+  background: #7c3aed;
+}
+
+/* =========================================
+   TAG DISPLAY (Details Page Premium)
+========================================= */
+
+.details-tags {
+  margin-bottom: 30px;
+}
+
+.tag-editor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag-filter {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid #374151;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.tag-filter.active {
+  color: white;
+  border: none;
+}
+
+.tag-filter:hover {
+  transform: translateY(-2px);
+}
+
+/*Other names*/
+
+.other-names{
+  margin-top:10px;
+}
+
+.other-name-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin:6px 0;
+}
+
+.other-name-chip{
+  background:#374151;
+  padding:4px 10px;
+  border-radius:20px;
+  font-size:15px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.delete-name{
+  cursor:pointer;
+  font-size:11px;
+  opacity:.7;
+}
+
+.delete-name:hover{
+  opacity:1;
+  color:#ef4444;
+}
+
+.other-name-input{
+  display:flex;
+  gap:8px;
+  margin-top:8px;
+}
+
+.other-name-input input{
+  flex:1;
+  padding:6px 10px;
+  border-radius:6px;
+  border:1px solid #374151;
+  background:#1f2937;
+  color:white;
+}
+
+/*Chapter Counter Warning*/
+.chapter-warning{
+  margin-top:8px;
+  padding:8px 12px;
+  background:#7f1d1d;
+  color:#fecaca;
+  border-radius:6px;
+  font-size:13px;
+}
+
+.details-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

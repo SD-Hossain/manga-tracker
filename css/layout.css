@@ -1,0 +1,346 @@
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 30px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.search-input {
+  width: 300px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--panel-light);
+  color: white;
+}
+
+.filters {
+  padding: 20px 30px;
+  border-bottom: 1px solid var(--border);
+}
+
+.stats {
+  display: flex;
+  gap: 30px;
+  padding: 10px 30px;
+  color: var(--text-muted);
+}
+
+/* =========================================
+   LIBRARY GRID (Stable)
+========================================= */
+
+#library {
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 24px;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 20px 30px;
+  align-items: center;
+}
+
+.filter-search {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--panel-light);
+  color: white;
+  width: 220px;
+}
+
+.filter-select {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--panel-light);
+  color: white;
+}
+
+.filter-chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+
+
+.tag-editor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+
+/* Delete above*/
+
+
+/* HEADER */
+.details-header {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: flex-start;
+}
+
+.details-cover {
+  width: 100px;
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+
+.details-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* GENRES */
+.details-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.genre-badge {
+  background: var(--panel-light);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+/* DESCRIPTION */
+.details-description {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* SECTION CARDS */
+.details-status,
+.details-tags,
+.details-progress,
+.details-meta-card {
+  background: var(--panel);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+.details-tags {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.details-tags strong {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.details-status,
+.details-tags,
+.details-progress,
+.details-meta-card {
+  transition: 0.2s ease;
+}
+
+.details-status:hover,
+.details-tags:hover,
+.details-progress:hover,
+.details-meta-card:hover {
+  transform: translateY(-2px);
+}
+.details-page {
+  gap: 20px;
+}
+/* TOP BAR */
+.details-topbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .details-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .details-cover {
+  width: 100px;
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+
+  display: block;
+  margin: 0 auto; /* ✅ center horizontally */
+}
+}
+
+/*Filter tags*/
+/* ===============================
+   TAG CHIPS (PREMIUM)
+=============================== */
+
+.filter-chip {
+  padding: 8px 14px;
+  border-radius: 999px;
+
+  background: var(--panel-light);
+  border: 1px solid transparent;
+
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* HOVER */
+.filter-chip:hover {
+  transform: translateY(-2px);
+  background: var(--panel-hover);
+}
+
+/* ACTIVE (SELECTED) */
+.filter-chip.active {
+  color: white;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* SMALL DOT INDICATOR */
+.filter-chip::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+/* ===============================
+   STATUS SECTION
+=============================== */
+
+.section-label {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.status-row {
+  display: flex;
+  gap: 10px;
+}
+
+/* Better select */
+.details-status select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--panel-light);
+  color: var(--text);
+  font-size: 14px;
+}
+
+/* ===============================
+   PROGRESS SECTION
+=============================== */
+
+.progress-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.progress-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Resume button upgrade */
+.resume-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius-md);
+
+  background: var(--primary);
+  color: white;
+
+  font-weight: 600;
+  font-size: 14px;
+
+  border: none;
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.resume-btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+/* ===============================
+   OTHER NAMES
+=============================== */
+
+.other-names {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  margin-bottom: 12px; /* ✅ THIS FIXES IT */
+}
+
+.other-name-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Add button spacing */
+.other-names .btn-secondary {
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+.other-name-chip {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--panel-light);
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  max-width: 100%;          
+  word-break: break-word;   
+}
+
+.other-name-chip span {
+  overflow-wrap: anywhere; 
+}
+
+.details-meta-card > * {
+  margin-bottom: 12px;
+}
+
+.details-meta-card > *:last-child {
+  margin-bottom: 0;
+}

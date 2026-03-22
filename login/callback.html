@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Signing In...</title>
+  <style>
+    body {
+      margin: 0;
+      background: #0f1117;
+      color: #e5e7eb;
+      font-family: system-ui, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .msg {
+      font-size: 1.3rem;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="msg">Completing sign-in…</div>
+<script type="module">
+  import { handleCallback } from "../js/auth/kinde.js";
+  handleCallback();
+</script>
+
+
+
+
+</body>
+</html>

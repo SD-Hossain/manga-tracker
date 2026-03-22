@@ -1,0 +1,530 @@
+/* ===============================
+   UNIVERSAL MODAL SYSTEM
+================================ */
+
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:10000;
+}
+
+/* Main modal window */
+
+.modal-window{
+  width:720px;
+  max-width:95%;
+  max-height:90vh;
+  overflow-y:auto;
+  background:#0f172a;
+  border-radius:14px;
+  padding:28px;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+
+/* Header */
+
+.modal-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.modal-header h2{
+  font-size:22px;
+  font-weight:600;
+}
+
+/* Close button */
+
+.modal-close{
+  background:none;
+  border:none;
+  font-size:20px;
+  color:#9ca3af;
+  cursor:pointer;
+}
+
+/* ===============================
+   COVER EDIT
+================================ */
+
+.meta-cover-edit{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  margin-bottom:24px;
+}
+
+.meta-cover-preview{
+  width:180px;
+  height:250px;
+  object-fit:cover;
+  border-radius:10px;
+  box-shadow:0 10px 25px rgba(0,0,0,.45);
+}
+
+/* ===============================
+   FORM GRID
+================================ */
+
+.meta-edit-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.meta-field{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.meta-field label{
+  font-size:13px;
+  color:#9ca3af;
+}
+
+.meta-field input,
+.meta-field textarea{
+  background:#1f2937;
+  border:1px solid #374151;
+  border-radius:8px;
+  padding:10px;
+  color:white;
+}
+
+/* textarea full width */
+
+.meta-field textarea{
+  grid-column:span 2;
+  min-height:120px;
+}
+
+/* ===============================
+   FOOTER
+================================ */
+
+.modal-footer{
+  margin-top:24px;
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+}
+
+/* Buttons */
+
+.btn-primary{
+  background:#2563eb;
+  border:none;
+  padding:10px 16px;
+  border-radius:8px;
+  color:white;
+  cursor:pointer;
+}
+
+.btn-secondary{
+  background:#374151;
+  border:none;
+  padding:10px 16px;
+  border-radius:8px;
+  color:white;
+  cursor:pointer;
+}
+
+.btn-danger{
+  background:#ef4444;
+  border:none;
+  padding:10px 16px;
+  border-radius:8px;
+  color:white;
+  cursor:pointer;
+}
+
+.genre-chip-container{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-bottom:8px;
+}
+
+.genre-chip{
+  background:#374151;
+  padding:6px 10px;
+  border-radius:20px;
+  font-size:12px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.genre-chip span{
+  cursor:pointer;
+  font-size:11px;
+  opacity:.8;
+}
+
+.genre-input{
+  padding:8px;
+  border-radius:8px;
+  border:1px solid #374151;
+  background:#1f2937;
+  color:white;
+}
+
+.cover-buttons{
+  display:flex;
+  gap:10px;
+}
+
+.modal-window{
+  animation:modalPop .2s ease;
+}
+
+@keyframes modalPop{
+  from{
+    transform:scale(.9);
+    opacity:0;
+  }
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+.btn-spinner{
+  width:14px;
+  height:14px;
+  border:2px solid rgba(255,255,255,.3);
+  border-top-color:white;
+  border-radius:50%;
+  display:inline-block;
+  animation:spin .6s linear infinite;
+  margin-right:6px;
+}
+
+@keyframes spin{
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+/*Delete the tops*/
+
+
+
+/* ===============================
+   UNIVERSAL MODAL SYSTEM
+=============================== */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 10000;
+}
+
+/* ===============================
+   MODAL CONTAINER
+=============================== */
+
+.modal {
+  width: 100%;
+  height: 100%;
+
+  background: var(--bg);
+
+  display: flex;
+  flex-direction: column;
+
+  animation: modalFadeIn 0.2s ease;
+}
+
+/* ===============================
+   DESKTOP MODE
+=============================== */
+
+@media (min-width: 768px) {
+  .modal {
+    width: 720px;
+    height: auto;
+    max-height: 90vh;
+
+    border-radius: var(--radius-lg);
+    background: var(--panel);
+
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+/* ===============================
+   HEADER
+=============================== */
+
+.modal-header {
+  padding: var(--space-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.modal-header h2 {
+  font-size: 18px;
+}
+
+/* ===============================
+   CONTENT
+=============================== */
+
+.modal-body {
+  padding: var(--space-lg);
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* ===============================
+   FOOTER (STICKY ON MOBILE)
+=============================== */
+
+.modal-footer {
+  padding: var(--space-lg);
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+
+  border-top: 1px solid var(--border);
+
+  background: var(--bg);
+}
+
+/* ===============================
+   ANIMATION
+=============================== */
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===============================
+   FORM LAYOUT (MODAL)
+=============================== */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* Preview spacing */
+.preview-card {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  background: var(--panel-light);
+  border-radius: var(--radius-md);
+}
+
+.preview-card img {
+  width: 80px;
+  border-radius: 6px;
+}
+
+.preview-card h3 {
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+
+.preview-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 6px 0;
+}
+
+.preview-genres span {
+  background: var(--panel);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+/* ===============================
+   TAG MANAGER LAYOUT
+=============================== */
+
+.tag-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: var(--panel-light);
+  padding: 10px;
+  border-radius: var(--radius-md);
+}
+
+.tag-row input[type="text"] {
+  flex: 1;
+}
+
+/* ===============================
+   TAG ROW (UPGRADED UI)
+=============================== */
+
+.tag-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  background: var(--panel-light);
+  padding: 12px;
+  border-radius: var(--radius-md);
+
+  box-shadow: var(--shadow-sm);
+}
+
+/* COLOR PREVIEW (BIG IMPROVEMENT) */
+.tag-color-preview {
+  width: 20px;
+  height: 40px;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+/* INPUT GROUP */
+.tag-inputs {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+}
+
+/* NAME INPUT */
+.tag-inputs input[type="text"] {
+  flex: 1;
+}
+
+/* COLOR INPUT (bigger + visible) */
+.tag-inputs input[type="color"] {
+  width: 50px;
+  height: 40px;
+  padding: 2px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ACTION BUTTONS */
+.tag-actions {
+  display: flex;
+  gap: 6px;
+}
+
+/* MOBILE STACK */
+@media (max-width: 480px) {
+  .tag-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tag-actions {
+    justify-content: flex-end;
+  }
+}
+
+/* ===============================
+   METADATA MANAGER
+=============================== */
+
+.meta-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.meta-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.meta-option {
+  padding: 12px;
+  background: var(--panel-light);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.meta-option:hover {
+  background: var(--panel-hover);
+  transform: translateY(-2px);
+}
+
+.meta-option.active {
+  border: 2px solid var(--primary);
+  background: rgba(99,102,241,0.15);
+  transform: scale(0.98);
+}
+
+.meta-selected {
+  font-size: 11px;
+  color: var(--primary);
+  margin-top: 6px;
+}
+
+/* SOURCE LABEL */
+.meta-source {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* COVER */
+.meta-cover {
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain; /* ✅ show full image */
+  background: var(--panel);
+  border-radius: 6px;
+}
+.meta-option img {
+  padding: 6px;
+}
+
+/* GENRES */
+.meta-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.meta-genres span {
+  background: var(--panel);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+}
