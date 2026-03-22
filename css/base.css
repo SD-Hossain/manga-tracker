@@ -408,6 +408,7 @@ input:focus, textarea:focus, select:focus {
   justify-content: space-between;
   align-items: center;
   padding: 12px;
+  border-bottom: #4f46e5;
 }
 
 .header-actions {
