@@ -8,7 +8,7 @@ async function getClient() {
   client = await createKindeClient({
     client_id: "0616a78c02c24e6f8b181e984a194182",
     domain: "https://mangatracker.kinde.com",
-    redirect_uri: window.location.origin,
+    redirect_uri: window.location.origin + "/login/callback",
     logout_uri: window.location.origin,
     audience: "manga_backend_api",
     is_dangerously_use_local_storage: true
