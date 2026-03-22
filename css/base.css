@@ -247,9 +247,10 @@ input:focus, textarea:focus, select:focus {
   justify-content: space-between;
   align-items: center;
 
-  position: fixed;
+   position: fixed;
   top: 20px;
-  right: 20px;
+  right: 10px;
+  max-width: 80%;
 
   box-shadow: var(--shadow-sm);
 
@@ -408,14 +409,21 @@ input:focus, textarea:focus, select:focus {
   background: #dc2626;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+}
+
 .header-actions {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
 .header-actions button {
-  padding: 8px 14px;
-  border-radius: 10px;
-  font-size: 14px;
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 8px;
 }

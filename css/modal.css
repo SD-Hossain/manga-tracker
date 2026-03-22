@@ -539,3 +539,34 @@
   border-radius: 6px;
   font-size: 12px;
 }
+
+.metadata-form {
+  display: flex;
+  flex-direction: column; /* 🔥 FORCE vertical */
+  gap: 12px;
+  width: 100%;
+}
+
+.metadata-form input,
+.metadata-form textarea {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+textarea {
+  width: 100%;
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap; /* 🔥 THIS FIXES IT */
+}
+
+.form-row button {
+  flex: 1;
+  min-width: 80px;
+}
