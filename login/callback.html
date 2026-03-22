@@ -25,9 +25,11 @@
   <div class="msg">Completing sign-in…</div>
 <script type="module">
   import { handleCallback } from "../js/auth/kinde.js";
-  handleCallback();
-</script>
 
+  await handleCallback();
+
+  window.location.href = "/";
+</script>
 
 
 

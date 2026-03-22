@@ -44,3 +44,15 @@ export async function initAuth() {
 
   return { isAuthenticated, user };
 }
+export async function handleCallback() {
+  const c = await getClient();
+
+  // This processes the login response from Kinde
+  await c.handleRedirectCallback();
+
+  const token = await c.getToken();
+
+  if (token) {
+    localStorage.setItem("authToken", token);
+  }
+}
