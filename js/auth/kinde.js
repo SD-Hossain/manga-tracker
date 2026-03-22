@@ -47,12 +47,14 @@ export async function initAuth() {
 export async function handleCallback() {
   const c = await getClient();
 
-  // This processes the login response from Kinde
-  await c.handleRedirectToApp();
+  // 🔥 THIS triggers internal processing
+  const isAuthenticated = await c.isAuthenticated();
 
-  const token = await c.getToken();
+  if (isAuthenticated) {
+    const token = await c.getToken();
 
-  if (token) {
-    localStorage.setItem("authToken", token);
+    if (token) {
+      localStorage.setItem("authToken", token);
+    }
   }
 }
