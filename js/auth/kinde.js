@@ -48,7 +48,7 @@ export async function handleCallback() {
   const c = await getClient();
 
   // This processes the login response from Kinde
-  await c.handleRedirectCallback();
+  await c.handleRedirectToApp();
 
   const token = await c.getToken();
 
