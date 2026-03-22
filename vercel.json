@@ -1,0 +1,5 @@
+{
+  "routes": [
+    { "src": "/login/callback", "dest": "/login/callback.html" }
+  ]
+}
