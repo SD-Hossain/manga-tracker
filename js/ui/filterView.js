@@ -48,8 +48,22 @@ function initSort() {
   const select = document.getElementById("sortFilter");
   if (!select) return;
 
+  // 🔥 1. LOAD saved value
+  const savedSort = localStorage.getItem("sortPreference");
+  if (savedSort) {
+    select.value = savedSort;
+    store.filters.sort = savedSort; // important!
+  }
+
+  // 🔥 2. SAVE on change
   select.addEventListener("change", () => {
-    store.filters.sort = select.value;
+    const value = select.value;
+
+    store.filters.sort = value;
+
+    // Save to localStorage
+    localStorage.setItem("sortPreference", value);
+
     renderLibraryView();
   });
 }
