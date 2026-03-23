@@ -116,12 +116,6 @@ if (!ok) return;
     }
   }, "btn-danger");
 
-  if (tag.is_system) {
-    nameInput.disabled = true;
-    colorInput.disabled = true;
-    deleteBtn.disabled = true;
-  }
-
   const colorPreview = document.createElement("div");
 colorPreview.className = "tag-color-preview";
 colorPreview.style.background = tag.color;
