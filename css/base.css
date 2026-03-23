@@ -403,23 +403,104 @@ input:focus, textarea:focus, select:focus {
 .delete-btn:hover {
   background: #dc2626;
 }
+
+/*Header Style*/
+
+/* HEADER */
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px;
-  border-bottom: #fbfbfd;
-  border-bottom-width: medium;
+
+  padding: 14px 16px;
+  background: rgba(10, 20, 40, 0.9);
+  backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-.header-actions {
+/* LOGO */
+.logo {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* MENU BUTTON */
+.menu-toggle {
+  font-size: 22px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+
+  display: none;
+}
+
+/* NAV */
+.nav {
   display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.header-actions button {
-  padding: 6px 10px;
-  font-size: 12px;
-  border-radius: 8px;
+/* BUTTONS */
+.nav-btn {
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+
+  background: rgba(255,255,255,0.08);
+  color: white;
+
+  transition: 0.2s;
+}
+
+.nav-btn:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* PRIMARY */
+.nav-btn.primary {
+  background: #2f6df6;
+}
+
+/* DANGER */
+.nav-btn.danger {
+  background: #e53935;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav {
+    position: absolute;
+    top: 60px;
+    right: 10px;
+
+    flex-direction: column;
+    width: 180px;
+
+    background: #1b2a3a;
+    border-radius: 12px;
+    padding: 10px;
+
+    display: none;
+  }
+
+  .nav.show {
+    display: flex;
+  }
+
+  .nav-btn {
+    width: 100%;
+    text-align: left;
+  }
 }
