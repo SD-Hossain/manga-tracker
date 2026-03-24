@@ -528,3 +528,28 @@
   border-radius: 6px;
   font-size: 12px;
 }
+
+/*Warning in Add Manga*/
+.warning-box {
+  margin-bottom: 10px;
+}
+
+.warn {
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.warn.exact {
+  border: 1px solid red;
+  color: red;
+}
+
+.warn.partial {
+  border: 1px solid green;
+  color: green;
+}
+
+.warn-content.hidden {
+  display: none;
+}

@@ -7,6 +7,7 @@ import { loadLibrary } from "../api/library.js";
 import { renderLibraryView } from "./libraryView.js";
 import { store } from "../state/store.js";
 import { showToast } from "../utils/toast.js";
+import { MangaCard } from "../components/MangaCard.js";
 
 export function openAddMangaModal() {
   let selectedPreview = null;
@@ -26,9 +27,12 @@ export function openAddMangaModal() {
   const urlInput = createInput("Redirect URL (optional)");
 
   const previewArea = document.createElement("div");
+  const warningBox = document.createElement("div");
+  warningBox.className = "warning-box";
 
   wrapper.append(
     titleInput.container,
+    warningBox,
     previewArea,
     chapterInput.container,
     urlInput.container
@@ -68,9 +72,14 @@ export function openAddMangaModal() {
   }
 
   titleInput.input.addEventListener("input", () => {
-    validate();
-    handlePreviewDebounce();
-  });
+  validate();
+  handlePreviewDebounce();
+
+  const value = titleInput.input.value;
+  const { exact, partial } = findMatches(value);
+
+  renderWarnings(exact, partial);
+});
 
   chapterInput.input.addEventListener("input", validate);
 
@@ -117,6 +126,79 @@ export function openAddMangaModal() {
       previewArea.innerHTML = `<div class="error">Preview failed</div>`;
     }
   }
+
+  function renderWarnings(exact, partial) {
+  warningBox.innerHTML = "";
+
+  // 🔴 EXACT MATCH
+  if (exact) {
+    const box = document.createElement("div");
+    box.className = "warn exact";
+
+    const header = document.createElement("div");
+    header.textContent = "⚠️ This manga already exists";
+
+    const toggle = document.createElement("button");
+    toggle.textContent = "Show more";
+
+    const content = document.createElement("div");
+    content.className = "warn-content hidden";
+
+    const card = MangaCard(exact);
+
+    const goBtn = document.createElement("button");
+    goBtn.textContent = "Go to manga";
+    goBtn.className = "btn btn-primary";
+    goBtn.onclick = () => card.click();
+
+    content.append(card, goBtn);
+
+    toggle.onclick = () => {
+      content.classList.toggle("hidden");
+    };
+
+    box.append(header, toggle, content);
+    warningBox.appendChild(box);
+
+    return; // stop if exact match
+  }
+
+  // 🟢 PARTIAL MATCH
+  if (partial.length > 0) {
+    const box = document.createElement("div");
+    box.className = "warn partial";
+
+    const header = document.createElement("div");
+    header.textContent = "💡 Similar manga found";
+
+    const toggle = document.createElement("button");
+    toggle.textContent = "Show more";
+
+    const content = document.createElement("div");
+    content.className = "warn-content hidden";
+
+    partial.slice(0, 5).forEach(manga => {
+      const card = MangaCard(manga);
+
+      const goBtn = document.createElement("button");
+      goBtn.textContent = "Go to manga";
+      goBtn.className = "btn btn-secondary";
+      goBtn.onclick = () => card.click();
+
+      const wrap = document.createElement("div");
+      wrap.append(card, goBtn);
+
+      content.appendChild(wrap);
+    });
+
+    toggle.onclick = () => {
+      content.classList.toggle("hidden");
+    };
+
+    box.append(header, toggle, content);
+    warningBox.appendChild(box);
+  }
+}
 
   function renderPreview() {
     const data = previewMatches[previewIndex];
@@ -233,6 +315,35 @@ export function openAddMangaModal() {
 /* ===============================
    HELPERS
 =============================== */
+
+function findMatches(input) {
+  const query = input.toLowerCase().trim();
+  if (!query) return { exact: null, partial: [] };
+
+  let exact = null;
+  const partial = [];
+
+  store.library.forEach(manga => {
+    const title = (manga.title || "").toLowerCase();
+
+    let otherNames = [];
+    if (manga.other_names) {
+      try {
+        otherNames = JSON.parse(manga.other_names);
+      } catch {}
+    }
+
+    const allNames = [title, ...otherNames.map(n => n.toLowerCase())];
+
+    if (allNames.includes(query)) {
+      exact = manga;
+    } else if (allNames.some(n => n.includes(query) || query.includes(n))) {
+      partial.push(manga);
+    }
+  });
+
+  return { exact, partial };
+}
 
 function createInput(labelText, type = "text") {
   const container = document.createElement("div");
