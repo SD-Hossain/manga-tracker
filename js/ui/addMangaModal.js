@@ -32,8 +32,8 @@ export function openAddMangaModal() {
 
   wrapper.append(
     titleInput.container,
-    warningBox,
     previewArea,
+    warningBox,
     chapterInput.container,
     urlInput.container
   );
@@ -127,7 +127,7 @@ export function openAddMangaModal() {
     }
   }
 
-  function renderWarnings(exact, partial) {
+ function renderWarnings(exact, partial) {
   warningBox.innerHTML = "";
 
   // 🔴 EXACT MATCH
@@ -136,10 +136,16 @@ export function openAddMangaModal() {
     box.className = "warn exact";
 
     const header = document.createElement("div");
-    header.textContent = "⚠️ This manga already exists";
+    header.className = "warn-header";
+
+    const title = document.createElement("div");
+    title.className = "warn-title";
+    title.textContent = "⚠️ This manga already exists";
 
     const toggle = document.createElement("button");
     toggle.textContent = "Show more";
+
+    header.append(title, toggle);
 
     const content = document.createElement("div");
     content.className = "warn-content hidden";
@@ -157,7 +163,7 @@ export function openAddMangaModal() {
       content.classList.toggle("hidden");
     };
 
-    box.append(header, toggle, content);
+    box.append(header, content);
     warningBox.appendChild(box);
 
     return; // stop if exact match
@@ -169,10 +175,16 @@ export function openAddMangaModal() {
     box.className = "warn partial";
 
     const header = document.createElement("div");
-    header.textContent = "💡 Similar manga found";
+    header.className = "warn-header";
+
+    const title = document.createElement("div");
+    title.className = "warn-title";
+    title.textContent = "💡 Similar manga found";
 
     const toggle = document.createElement("button");
     toggle.textContent = "Show more";
+
+    header.append(title, toggle);
 
     const content = document.createElement("div");
     content.className = "warn-content hidden";
@@ -195,7 +207,7 @@ export function openAddMangaModal() {
       content.classList.toggle("hidden");
     };
 
-    box.append(header, toggle, content);
+    box.append(header, content);
     warningBox.appendChild(box);
   }
 }
@@ -317,27 +329,47 @@ export function openAddMangaModal() {
 =============================== */
 
 function findMatches(input) {
-  const query = input.toLowerCase().trim();
+  const normalize = (str) =>
+    (str || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+
+  const query = normalize(input);
   if (!query) return { exact: null, partial: [] };
 
   let exact = null;
   const partial = [];
 
   store.library.forEach(manga => {
-    const title = (manga.title || "").toLowerCase();
+    const title = normalize(manga.title);
 
     let otherNames = [];
+
     if (manga.other_names) {
-      try {
-        otherNames = JSON.parse(manga.other_names);
-      } catch {}
+      if (Array.isArray(manga.other_names)) {
+        otherNames = manga.other_names;
+      } else {
+        try {
+          otherNames = JSON.parse(manga.other_names);
+        } catch {
+          otherNames = [];
+        }
+      }
     }
 
-    const allNames = [title, ...otherNames.map(n => n.toLowerCase())];
+    const allNames = [
+      title,
+      ...otherNames.map(n => normalize(n))
+    ];
 
-    if (allNames.includes(query)) {
+    // 🔴 EXACT MATCH
+    if (allNames.some(n => n === query)) {
       exact = manga;
-    } else if (allNames.some(n => n.includes(query) || query.includes(n))) {
+      return;
+    }
+
+    // 🟢 PARTIAL MATCH
+    if (allNames.some(n =>
+      n.includes(query) || query.includes(n)
+    )) {
       partial.push(manga);
     }
   });

@@ -531,25 +531,60 @@
 
 /*Warning in Add Manga*/
 .warning-box {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .warn {
-  padding: 10px;
-  border-radius: 8px;
+  padding: 12px;
+  border-radius: 10px;
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .warn.exact {
-  border: 1px solid red;
-  color: red;
+  border: 1px solid rgba(255, 80, 80, 0.6);
+  background: rgba(255, 80, 80, 0.08);
+  color: #ff6b6b;
 }
 
 .warn.partial {
-  border: 1px solid green;
-  color: green;
+  border: 1px solid rgba(0, 200, 120, 0.6);
+  background: rgba(0, 200, 120, 0.08);
+  color: #4ade80;
+}
+
+.warn-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.warn-title {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.warn-content {
+  margin-top: 8px;
 }
 
 .warn-content.hidden {
   display: none;
+}
+
+.warn button {
+  background: transparent;
+  border: 1px solid currentColor;
+  color: inherit;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.warn button:hover {
+  background: rgba(255,255,255,0.08);
 }
