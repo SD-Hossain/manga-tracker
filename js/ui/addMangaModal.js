@@ -32,8 +32,8 @@ export function openAddMangaModal() {
 
   wrapper.append(
     titleInput.container,
-    previewArea,
     warningBox,
+    previewArea,
     chapterInput.container,
     urlInput.container
   );
